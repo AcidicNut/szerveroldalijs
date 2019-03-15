@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Necronomicon</title>
+    <link rel="icon" href="magic-spell-book-open.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Spell book</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+            aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="spells.html">Spells</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="magicians.html">Magicians</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Add/Modify Spell <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="magician_edit.html">Add/Modify Magician</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row justify-content-center">
+    <form  class="col-6">
+        <caption>
+            <h2><strong>Add/Modify Spell</strong></h2>
+        </caption>
+        <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" required class="form-control" id="nameInput">
+        </div>
+        <div class="form-group">
+            <label for="detailsInput">Details</label>
+            <input type="text" class="form-control" id="detailsInput">
+        </div>
+        <div class="form-group">
+            <label for="inventorInput">Inventor</label>
+            <input type="text" class="form-control" id="inventorInput">
+        </div>
+        <button id="spellAddBtn" type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-danger" href="spells.html">Cancel</a>
+    </form>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
