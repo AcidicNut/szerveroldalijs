@@ -6,6 +6,6 @@ module.exports = function (app) {
     };
 
     app.get("/",
-        renderMW(objrep, "mmod")
+        renderMW(objrep, "mainpage")
     );
 };

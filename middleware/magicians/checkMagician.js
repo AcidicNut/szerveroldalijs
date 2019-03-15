@@ -5,6 +5,7 @@ var requireOption = require('../common').requireOption;
 module.exports = function (objectrepository) {
     var magicianModel = requireOption(objectrepository, 'magicianModel');
     return function (req, res, next) {
+        console.log("checkMagicianMW");
         return next();
     };
 };
