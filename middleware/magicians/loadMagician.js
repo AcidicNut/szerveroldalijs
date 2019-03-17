@@ -1,4 +1,4 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
  * Get the magician for the magicianid param
  *  - if there is no such magician, redirect to /magicians

@@ -1,4 +1,4 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
  * Get the spell for the spellid param
  *  - if there is no such spell, redirect to /spells

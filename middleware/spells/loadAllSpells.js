@@ -1,4 +1,4 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
  * Get the spell list and put the spells on res.tpl.spells
  */

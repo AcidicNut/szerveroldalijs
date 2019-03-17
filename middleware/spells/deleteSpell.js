@@ -1,6 +1,7 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
- * delete spell from database
+ * Removes a spell from the database, the entity used here is: res.tpl.spell
+ * Redirects to /spell after delete
  */
 module.exports = function (objectrepository) {
     var spellModel = requireOption(objectrepository, 'spellModel');

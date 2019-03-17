@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-//app.use(express.static('static'));
+app.use(express.static('static'));
 
 /**
  * Let's create the .tpl and .error on the res object

@@ -1,4 +1,4 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
  * check/validate spell attributes
  */

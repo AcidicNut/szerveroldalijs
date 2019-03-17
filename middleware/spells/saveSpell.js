@@ -1,6 +1,8 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
- * save spell
+ * Using POST params update or save a spell to the database
+ * If res.tpl.spell is there, it's an update otherwise this middleware creates an entity
+ * Redirects to /spells after success
  */
 module.exports = function (objectrepository) {
     var spellModel = requireOption(objectrepository, 'spellModel');

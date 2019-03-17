@@ -1,4 +1,4 @@
-var requireOption = require('../common').requireOption;
+var requireOption = require('../requireOption').requireOption;
 /**
  * Get the magician list and put the magicians on res.tpl.magicians
  */
