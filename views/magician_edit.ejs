@@ -1,17 +1,24 @@
 <%- include('header') -%>
 <%- include('menu') -%>
 <div class="row justify-content-center">
-    <form class="col-6">
+    <form class="col-6" method="post">
         <caption>
-            <h2><strong>Add/Modify Magician</strong></h2>
+            <h2><strong>
+                    <% if (typeof magician === 'undefined'){ %>
+                        <% magician = { name : '', favouriteColour : ''}%>
+                        Add
+                    <% } else {%>
+                        Modify
+                    <% } %>
+                    Magician</strong></h2>
         </caption>
         <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" required class="form-control" id="nameInput">
+            <input type="text" required class="form-control" id="nameInput" value="<%= magician.name %>">
         </div>
         <div class="form-group">
             <label for="colourInput">Favourite Colour</label>
-            <input type="text" class="form-control" id="colourInput">
+            <input type="text" class="form-control" id="colourInput" value="<%= magician.favouriteColour %>">
         </div>
         <button id="magicianAddBtn" type="submit" class="btn btn-primary">Submit</button>
         <a class="btn btn-danger" href="/magicians">Cancel</a>

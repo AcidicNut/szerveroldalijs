@@ -14,36 +14,18 @@
     </tr>
     </thead>
     <tbody>
+    <% for (key in spells) { var spell = spells[key]; %>
     <tr>
-        <th scope="row">1</th>
-        <td>Fire Ball</td>
-        <td>Flaming ball</td>
-        <td>Medivh</td>
+        <th scope="row"><%= parseInt(key) + 1 %></th>
+        <td><%= spell.name %></td>
+        <td><%= spell.details %></td>
+        <td><%= spell.inventor %></td>
         <th scope="col">
             <a class="btn btn-light" href="/spells/spell/10"><i class="fas fa-edit"></i></a>
             <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
         </th>
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Gucci</td>
-        <td>Gang</td>
-        <td>Lil Pump</td>
-        <th scope="col">
-            <a class="btn btn-light" href="/spells/spell/20"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-        </th>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Lie Detect</td>
-        <td>Detects liars.</td>
-        <td>Mentalist</td>
-        <th scope="col">
-            <a class="btn btn-light" href="/spells/spell/30"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-        </th>
-    </tr>
+    <% } %>
     </tbody>
 </table>
 <%- include('footer') -%>

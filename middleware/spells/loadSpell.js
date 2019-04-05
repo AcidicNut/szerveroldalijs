@@ -7,6 +7,11 @@ var requireOption = require('../requireOption').requireOption;
 module.exports = function (objectrepository) {
     var spellModel = requireOption(objectrepository, 'spellModel');
     return function (req, res, next) {
+        res.locals.spell = {
+            name : 'DefaultSpellName',
+            details : 'DefaultSpellDetails',
+            inventor : 'DefaultSpellInventor'
+        };
         return next();
     };
 };

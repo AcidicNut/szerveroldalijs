@@ -1,21 +1,28 @@
 <%- include('header') -%>
 <%- include('menu') -%>
 <div class="row justify-content-center">
-    <form  class="col-6">
+    <form  class="col-6" method="post">
         <caption>
-            <h2><strong>Add/Modify Spell</strong></h2>
+            <h2><strong>
+                    <% if (typeof spell === 'undefined'){ %>
+                        <% spell = { name : '', details : '', inventor : ''}%>
+                        Add
+                    <% } else {%>
+                        Modify
+                    <% } %>
+                    Spell</strong></h2>
         </caption>
         <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" required class="form-control" id="nameInput">
+            <input type="text" required class="form-control" id="nameInput" value="<%= spell.name %>">
         </div>
         <div class="form-group">
             <label for="detailsInput">Details</label>
-            <input type="text" class="form-control" id="detailsInput">
+            <input type="text" class="form-control" id="detailsInput" value="<%= spell.details %>">
         </div>
         <div class="form-group">
             <label for="inventorInput">Inventor</label>
-            <input type="text" class="form-control" id="inventorInput">
+            <input type="text" class="form-control" id="inventorInput" value="<%= spell.inventor %>">
         </div>
         <button id="spellAddBtn" type="submit" class="btn btn-primary">Submit</button>
         <a class="btn btn-danger" href="/spells">Cancel</a>

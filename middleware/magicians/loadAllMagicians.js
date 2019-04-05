@@ -6,6 +6,20 @@ module.exports = function (objectrepository) {
     var magicianModel = requireOption(objectrepository, 'magicianModel');
 
     return function (req, res, next) {
+        res.locals.magicians = [
+            {
+                name : 'Medivh',
+                favouriteColor : 'Red'
+            },
+            {
+                name : 'Lil Pump',
+                favouriteColour : 'Purple'
+            },
+            {
+                name : 'Mentalist',
+                favouriteColour : 'Blue'
+            }
+        ];
         return next();
     };
 };

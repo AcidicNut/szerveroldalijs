@@ -7,6 +7,10 @@ var requireOption = require('../requireOption').requireOption;
 module.exports = function (objectrepository) {
     var magicianModel = requireOption(objectrepository, 'magicianModel');
     return function (req, res, next) {
+        res.locals.magician = {
+          name : 'DefaultMagicianName',
+          favouriteColour : 'DefaultMagicianColour'
+        };
         return next();
     };
 };

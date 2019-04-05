@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 /**
- * Let's create the .tpl and .error on the res object
+ * Let's create the .error on the res object
  */
 app.use(function (req, res, next) {
     res.error = [];
