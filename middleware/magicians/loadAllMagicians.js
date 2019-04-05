@@ -6,7 +6,6 @@ module.exports = function (objectrepository) {
     var magicianModel = requireOption(objectrepository, 'magicianModel');
 
     return function (req, res, next) {
-        console.log("loadAllMagicianMW");
         return next();
     };
 };

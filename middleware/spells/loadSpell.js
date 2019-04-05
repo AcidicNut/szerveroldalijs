@@ -7,7 +7,6 @@ var requireOption = require('../requireOption').requireOption;
 module.exports = function (objectrepository) {
     var spellModel = requireOption(objectrepository, 'spellModel');
     return function (req, res, next) {
-        console.log("loadSpellsMW");
         return next();
     };
 };
