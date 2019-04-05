@@ -1,6 +1,6 @@
 var requireOption = require('../requireOption').requireOption;
 /**
- * Removes a magician from the database, the entity used here is: res.tpl.magician
+ * Removes a magician from the database, the entity used here is: res.locals.magician
  * Redirects to /magician after delete
  */
 module.exports = function (objectrepository) {

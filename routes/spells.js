@@ -12,34 +12,34 @@ module.exports = function (app) {
 
     app.get("/spells/spell/:id",
         loadSpell(objrep),
-        renderMW(objrep, "smod")
+        renderMW(objrep, "spell_edit")
     );
 
     app.post("/spells/spell/:id",
         loadSpell(objrep),
         checkSpell(objrep),
         saveSpell(objrep),
-        renderMW(objrep, "smod")
+        renderMW(objrep, "spell_edit")
     );
 
     app.get("/spells/del/:id",
         loadSpell(objrep),
         deleteSpell(objrep),
-        renderMW(objrep, "del")
+        renderMW(objrep, "spells")
     );
 
     app.get("/spells/add",
-        renderMW(objrep, "sadd")
+        renderMW(objrep, "spell_edit")
     );
 
     app.post("/spells/add",
         checkSpell(objrep),
         saveSpell(objrep),
-        renderMW(objrep, "sadd")
+        renderMW(objrep, "spell_edit")
     );
 
     app.get("/spells",
         loadAllspells(objrep),
-        renderMW(objrep, "slist")
+        renderMW(objrep, "spells")
     );
 };

@@ -1,6 +1,6 @@
 var requireOption = require('../requireOption').requireOption;
 /**
- * Get the spell list and put the spells on res.tpl.spells
+ * Get the spell list and put the spells on res.locals.spells
  */
 module.exports = function (objectrepository) {
     var spellModel = requireOption(objectrepository, 'spellModel');

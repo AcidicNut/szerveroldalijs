@@ -1,14 +1,26 @@
 var express = require('express');
 var app = express();
 
-app.use(express.static('static'));
+var bodyParser = require('body-parser');
+
+app.use(express.static('views'));
+app.set('view engine', 'ejs');
+
+/**
+ * Parse parameters in POST
+ */
+// for parsing application/json
+app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 
 /**
  * Let's create the .tpl and .error on the res object
  */
 app.use(function (req, res, next) {
     res.error = [];
-    res.tpl = {};
     return next();
 });
 
@@ -17,7 +29,7 @@ app.use(function (req, res, next) {
  */
 require('./routes/spells')(app);
 require('./routes/magicians')(app);
-require('./routes/mainpage')(app);
+require('./routes/frontpage')(app);
 /**
  * Standard error handler
  */

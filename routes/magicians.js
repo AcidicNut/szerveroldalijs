@@ -12,34 +12,34 @@ module.exports = function (app) {
 
     app.get("/magicians/magician/:id",
         loadMagician(objrep),
-        renderMW(objrep, "mmod")
+        renderMW(objrep, "magician_edit")
     );
 
     app.post("/magicians/magician/:id",
         loadMagician(objrep),
         checkMagician(objrep),
         saveMagician(objrep),
-        renderMW(objrep, "mmod")
+        renderMW(objrep, "magician_edit")
     );
 
     app.get("/magicians/del/:id",
         loadMagician(objrep),
         deleteMagician(objrep),
-        renderMW(objrep, "mdel")
+        renderMW(objrep, "magicians")
     );
 
     app.get("/magicians/add",
-        renderMW(objrep, "madd")
+        renderMW(objrep, "magician_edit")
     );
 
     app.post("/magicians/add",
         checkMagician(objrep),
         saveMagician(objrep),
-        renderMW(objrep, "madd")
+        renderMW(objrep, "magician_edit")
     );
 
     app.get("/magicians",
         loadAllMagicians(objrep),
-        renderMW(objrep, "mlist")
+        renderMW(objrep, "magicians")
     );
 };
