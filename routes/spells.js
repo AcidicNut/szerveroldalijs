@@ -10,19 +10,19 @@ module.exports = function (app) {
         spellModel: 'spellModell'
     };
 
-    app.get("/spells/spell/:id",
+    app.get("/spells/spell/:spellid",
         loadSpell(objrep),
         renderMW(objrep, "spell_edit")
     );
 
-    app.post("/spells/spell/:id",
+    app.post("/spells/spell/:spellid",
         loadSpell(objrep),
         checkSpell(objrep),
         saveSpell(objrep),
         renderMW(objrep, "spell_edit")
     );
 
-    app.get("/spells/del/:id",
+    app.get("/spells/del/:spellid",
         loadSpell(objrep),
         deleteSpell(objrep),
         renderMW(objrep, "spells")

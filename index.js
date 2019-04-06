@@ -1,20 +1,53 @@
-var express = require('express');
-var app = express();
+let express = require('express');
+let app = express();
 
-var bodyParser = require('body-parser');
+/**
+ * module.exports.magicians for mocking database
+ */
+module.exports.magicians = [
+    {
+        name : 'Medivh',
+        favouriteColour : 'Red'
+    },
+    {
+        name : 'Lil Pump',
+        favouriteColour : 'Purple'
+    },
+    {
+        name : 'Mentalist',
+        favouriteColour : 'Blue'
+    }
+];
+
+/**
+ * module.exports.spells for mocking database
+ */
+module.exports.spells = [
+    {
+        name : 'Fire Ball',
+        details : 'Flaming ball',
+        inventor : 'Medivh'
+    },
+    {
+        name : 'Gucci',
+        details : 'Gang',
+        inventor : 'Lil Pump'
+    },
+    {
+        name : 'Lie Detect',
+        details : 'Detects liars.',
+        inventor : 'Mentalist'
+    }
+];
 
 app.use(express.static('views'));
 app.set('view engine', 'ejs');
 
-/**
- * Parse parameters in POST
- */
-// for parsing application/json
-app.use(bodyParser.json());
-// for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
 
 /**
  * Let's create the .error on the res object
@@ -40,7 +73,6 @@ app.use(function (err, req, res, next) {
     console.error(err.stack);
 });
 
-
-var server = app.listen(3000, function () {
+let server = app.listen(3000, function () {
     console.log('Hello :3000');
 });

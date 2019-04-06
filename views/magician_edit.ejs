@@ -14,11 +14,11 @@
         </caption>
         <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" required class="form-control" id="nameInput" value="<%= magician.name %>">
+            <input type="text" required class="form-control" name="magician[name]" id="nameInput" value="<%= magician.name %>">
         </div>
         <div class="form-group">
             <label for="colourInput">Favourite Colour</label>
-            <input type="text" class="form-control" id="colourInput" value="<%= magician.favouriteColour %>">
+            <input type="text" class="form-control" name="magician[favouriteColour]" id="colourInput" value="<%= magician.favouriteColour %>">
         </div>
         <button id="magicianAddBtn" type="submit" class="btn btn-primary">Submit</button>
         <a class="btn btn-danger" href="/magicians">Cancel</a>

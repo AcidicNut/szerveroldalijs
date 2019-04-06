@@ -1,4 +1,5 @@
 var requireOption = require('../requireOption').requireOption;
+const magicians = require("../../index").magicians;
 /**
  * Get the magician for the magicianid param
  *  - if there is no such magician, redirect to /magicians
@@ -7,10 +8,9 @@ var requireOption = require('../requireOption').requireOption;
 module.exports = function (objectrepository) {
     var magicianModel = requireOption(objectrepository, 'magicianModel');
     return function (req, res, next) {
-        res.locals.magician = {
-          name : 'DefaultMagicianName',
-          favouriteColour : 'DefaultMagicianColour'
-        };
+        if (typeof req.params.magicianid === 'undefined' || typeof magicians[req.params.magicianid] === 'undefined')
+            return res.redirect("/magicians");
+        res.locals.magician = magicians[req.params.magicianid];
         return next();
     };
 };

@@ -10,19 +10,19 @@ module.exports = function (app) {
         magicianModel: 'magicianModell'
     };
 
-    app.get("/magicians/magician/:id",
+    app.get("/magicians/magician/:magicianid",
         loadMagician(objrep),
         renderMW(objrep, "magician_edit")
     );
 
-    app.post("/magicians/magician/:id",
+    app.post("/magicians/magician/:magicianid",
         loadMagician(objrep),
         checkMagician(objrep),
         saveMagician(objrep),
         renderMW(objrep, "magician_edit")
     );
 
-    app.get("/magicians/del/:id",
+    app.get("/magicians/del/:magicianid",
         loadMagician(objrep),
         deleteMagician(objrep),
         renderMW(objrep, "magicians")
