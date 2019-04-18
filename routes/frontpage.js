@@ -1,7 +1,7 @@
-var renderMW = require('../middleware/generic/render');
+const renderMW = require('../middleware/generic/render');
 
 module.exports = function (app) {
-    var objrep =  {
+    let objrep = {
         magicianModel: 'magicianModell'
     };
 

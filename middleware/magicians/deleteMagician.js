@@ -2,7 +2,7 @@
  * Removes a magician from the database, the entity used here is: res.locals.magician
  * Redirects to /magicians after delete
  */
-module.exports = function () {
+module.exports = function (objectrepository) {
     return function (req, res, next) {
         if (typeof res.locals.magician === 'undefined') {
             return next();

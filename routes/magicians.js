@@ -26,7 +26,7 @@ module.exports = function (app) {
 
     app.get("/magicians/del/:magicianid",
         loadMagician(objrep),
-        deleteMagician(),
+        deleteMagician(objrep),
         renderMW(objrep, "magicians")
     );
 

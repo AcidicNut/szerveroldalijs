@@ -2,7 +2,7 @@
  * Removes a spell from the database, the entity used here is: res.locals.spell
  * Redirects to /spell after delete
  */
-module.exports = function () {
+module.exports = function (objectrepository) {
     return function (req, res, next) {
         if (typeof res.locals.spell === 'undefined') {
             return next();
