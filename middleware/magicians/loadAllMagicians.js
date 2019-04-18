@@ -1,13 +1,17 @@
-const magicians = require("../../index").magicians;
-var requireOption = require('../requireOption').requireOption;
+const requireOption = require('../requireOption').requireOption;
 /**
  * Get the magician list and put the magicians on res.locals.magicians
  */
 module.exports = function (objectrepository) {
-    var magicianModel = requireOption(objectrepository, 'magicianModel');
+    let magicianModel = requireOption(objectrepository, 'magicianModel');
 
     return function (req, res, next) {
-        res.locals.magicians = magicians;
-        return next();
+        magicianModel.find({}, function (err, results) {
+            if (err) {
+                return next(err);
+            }
+            res.locals.magicians = results;
+            return next();
+        });
     };
 };

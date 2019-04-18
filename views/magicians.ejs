@@ -13,13 +13,13 @@
     </tr>
     </thead>
     <tbody>
-    <% for (key in magicians) { var magician = magicians[key]; %>
+    <% for (key in magicians) { var magician = magicians[key];%>
     <tr>
         <th scope="row"><%= parseInt(key) + 1 %></th>
         <td><%= magician.name %></td>
         <td><%= magician.favouriteColour %></td>
         <th scope="col">
-            <a class="btn btn-light" href="/magicians/magician/<%=key%>"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-light" href="/magicians/magician/<%=magician._id%>"><i class="fas fa-edit"></i></a>
             <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
         </th>
     </tr>
