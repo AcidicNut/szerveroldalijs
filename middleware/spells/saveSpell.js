@@ -20,7 +20,7 @@ module.exports = function (objectrepository) {
         spell.name = req.body.spell.name;
         spell.details = req.body.spell.details;
 
-        //TODO:: inventor save/populate
+        //TODO:: inventor save/populate, inventor names are unique
 
         spell.save(function (err) {
             if (err) {
