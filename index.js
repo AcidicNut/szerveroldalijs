@@ -1,6 +1,29 @@
 let express = require('express');
 let app = express();
 
+const Spell = require('./models/spell');
+const Magician = require('./models/magician');
+var abraca = new Spell();
+var voldi = new Magician();
+
+//multiple start throws error, because of unique restrictions. code from line 10 to 25 serves as a dev tool
+voldi.name = "Voldemort2";
+voldi.favouriteColour = "Black";
+
+voldi.save(function (err, magician) {
+    if (err){
+       return next(err);
+    }
+    abraca.name = "Abraca Dab2";
+    abraca._inventor = magician._id;
+    abraca.details = "Dabraca";
+    abraca.save(function (err) {
+        if (err){
+            return next(err);
+        }
+    })
+});
+
 app.use(express.static('views'));
 app.set('view engine', 'ejs');
 
