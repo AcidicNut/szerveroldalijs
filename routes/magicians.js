@@ -1,13 +1,15 @@
-var renderMW = require('../middleware/generic/render');
-var loadMagician = require('../middleware/magicians/loadMagician');
-var deleteMagician = require('../middleware/magicians/deleteMagician');
-var checkMagician = require('../middleware/magicians/checkMagician');
-var saveMagician = require('../middleware/magicians/saveMagician');
-var loadAllMagicians = require('../middleware/magicians/loadAllMagicians');
+const renderMW = require('../middleware/generic/render');
+const loadMagician = require('../middleware/magicians/loadMagician');
+const deleteMagician = require('../middleware/magicians/deleteMagician');
+const checkMagician = require('../middleware/magicians/checkMagician');
+const saveMagician = require('../middleware/magicians/saveMagician');
+const loadAllMagicians = require('../middleware/magicians/loadAllMagicians');
+
+var magicianModel = require("../models/magician");
 
 module.exports = function (app) {
     var objrep =  {
-        magicianModel: 'magicianModell'
+        magicianModel: magicianModel
     };
 
     app.get("/magicians/magician/:magicianid",

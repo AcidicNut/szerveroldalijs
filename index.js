@@ -1,44 +1,29 @@
 let express = require('express');
 let app = express();
 
-/**
- * module.exports.magicians for mocking database
- */
-module.exports.magicians = [
-    {
-        name : 'Medivh',
-        favouriteColour : 'Red'
-    },
-    {
-        name : 'Lil Pump',
-        favouriteColour : 'Purple'
-    },
-    {
-        name : 'Mentalist',
-        favouriteColour : 'Blue'
-    }
-];
+/*const Spell = require('./models/spell');
+const Magician = require('./models/magician');
+var abraca = new Spell();
+var voldi = new Magician();
 
-/**
- * module.exports.spells for mocking database
- */
-module.exports.spells = [
-    {
-        name : 'Fire Ball',
-        details : 'Flaming ball',
-        inventor : 'Medivh'
-    },
-    {
-        name : 'Gucci',
-        details : 'Gang',
-        inventor : 'Lil Pump'
-    },
-    {
-        name : 'Lie Detect',
-        details : 'Detects liars.',
-        inventor : 'Mentalist'
+voldi.name = "Voldemort";
+voldi.favouriteColour = "Black";
+
+voldi.save(function (err, magician) {
+    if (err){
+       console.log(err);
+       return next(err);
     }
-];
+    abraca.name = "Abraca Dab";
+    abraca._inventor = magician._id;
+    abraca.details = "Dabraca";
+    abraca.save(function (err, spell) {
+        if (err){
+            console.log(err);
+            return next(err);
+        }
+    })
+});*/
 
 app.use(express.static('views'));
 app.set('view engine', 'ejs');
@@ -48,14 +33,6 @@ app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-
-/**
- * Let's create the .error on the res object
- */
-app.use(function (req, res, next) {
-    res.error = [];
-    return next();
-});
 
 /**
  * Include all the routes

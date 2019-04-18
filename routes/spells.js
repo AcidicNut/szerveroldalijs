@@ -5,9 +5,11 @@ var checkSpell = require('../middleware/spells/checkSpell');
 var saveSpell = require('../middleware/spells/saveSpell');
 var loadAllspells = require('../middleware/spells/loadAllSpells');
 
+var spellModel = require('../models/spell');
+
 module.exports = function (app) {
     var objrep =  {
-        spellModel: 'spellModell'
+        spellModel: spellModel
     };
 
     app.get("/spells/spell/:spellid",
