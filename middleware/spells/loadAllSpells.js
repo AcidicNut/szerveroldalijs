@@ -11,7 +11,6 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             res.locals.spells = results;
-            console.log(results);
             return next();
         });
     };

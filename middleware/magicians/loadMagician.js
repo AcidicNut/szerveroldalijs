@@ -7,9 +7,22 @@ const requireOption = require('../requireOption').requireOption;
 module.exports = function (objectrepository) {
     let magicianModel = requireOption(objectrepository, 'magicianModel');
     return function (req, res, next) {
-        if (typeof req.params.magicianid === 'undefined' || typeof magicians[req.params.magicianid] === 'undefined')
-            return res.redirect("/magicians");
-        res.locals.magician = magicians[req.params.magicianid];
-        return next();
+        //not enought parameter
+        if ((typeof req.params.magicianid === 'undefined') || (req.params.magicianid === 'null')) {
+            return next();
+        }
+
+        //lets find the magician
+        magicianModel.findOne({_id: req.params.magicianid}, function (err, result) {
+            if (!result){
+                return res.redirect("/magicians");
+            }
+            if (err) {
+                return next(err);
+            }
+
+            res.locals.magician = result;
+            return next();
+        });
     };
 };

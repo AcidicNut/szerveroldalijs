@@ -19,7 +19,7 @@
         <th scope="row"><%= parseInt(key) + 1 %></th>
         <td><%= spell.name %></td>
         <td><%= spell.details %></td>
-        <td><%= spell.inventor %></td>
+        <td><%= spell._inventor ? spell._inventor.name : 'unknown' %></td>
         <th scope="col">
             <a class="btn btn-light" href="/spells/spell/<%=spell._id%>"><i class="fas fa-edit"></i></a>
             <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
