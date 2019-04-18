@@ -1,12 +1,19 @@
-var requireOption = require('../requireOption').requireOption;
-const magicians = require("../../index").magicians;
 /**
  * Removes a magician from the database, the entity used here is: res.locals.magician
  * Redirects to /magicians after delete
  */
-module.exports = function (objectrepository) {
-    var magicianModel = requireOption(objectrepository, 'magicianModel');
+module.exports = function () {
     return function (req, res, next) {
-        return next();
+        if (typeof res.locals.magician === 'undefined') {
+            return next();
+        }
+
+        res.locals.magician.remove(function (err) {
+            if (err) {
+                return next(err);
+            }
+            //redirect to all tasks
+            res.redirect('/magicians');
+        });
     };
 };

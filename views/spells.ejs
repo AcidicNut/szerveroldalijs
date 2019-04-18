@@ -22,7 +22,7 @@
         <td><%= spell._inventor ? spell._inventor.name : 'unknown' %></td>
         <th scope="col">
             <a class="btn btn-light" href="/spells/spell/<%=spell._id%>"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            <a class="btn btn-danger" href="/spells/del/<%=spell._id%>"><i class="fas fa-trash-alt"></i></a>
         </th>
     </tr>
     <% } %>

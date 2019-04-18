@@ -26,7 +26,7 @@ module.exports = function (app) {
 
     app.get("/spells/del/:spellid",
         loadSpell(objrep),
-        deleteSpell(objrep),
+        deleteSpell(),
         renderMW(objrep, "spells")
     );
 

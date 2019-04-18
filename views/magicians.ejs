@@ -20,7 +20,7 @@
         <td><%= magician.favouriteColour %></td>
         <th scope="col">
             <a class="btn btn-light" href="/magicians/magician/<%=magician._id%>"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            <a class="btn btn-danger" href="/magicians/del/<%=magician._id%>"><i class="fas fa-trash-alt"></i></a>
         </th>
     </tr>
     <% } %>
