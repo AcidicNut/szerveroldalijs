@@ -6,7 +6,7 @@ const Magician = require('./models/magician');
 var abraca = new Spell();
 var voldi = new Magician();
 
-voldi.name = "Voldemort";
+voldi.name = "Voldemort2";
 voldi.favouriteColour = "Black";
 
 voldi.save(function (err, magician) {
@@ -14,7 +14,7 @@ voldi.save(function (err, magician) {
        console.log(err);
        return next(err);
     }
-    abraca.name = "Abraca Dab";
+    abraca.name = "Abraca Dab2";
     abraca._inventor = magician._id;
     abraca.details = "Dabraca";
     abraca.save(function (err, spell) {
@@ -24,12 +24,11 @@ voldi.save(function (err, magician) {
         }
     })
 });*/
-
 app.use(express.static('views'));
 app.set('view engine', 'ejs');
 
 // Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
