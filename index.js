@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express();
 
-//multiple start throws error, because of unique restrictions. code from line 10 to 25 serves as a dev tool
+//multiple start throws error, because of unique restrictions. code from line 4 to 25 serves as a dev tool
 //const Spell = require('./models/spell');
 //const Magician = require('./models/magician');
 //var abraca = new Spell();
