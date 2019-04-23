@@ -1,14 +1,13 @@
 const renderMW = require('../middleware/generic/render');
 const loadMagician = require('../middleware/magicians/loadMagician');
 const deleteMagician = require('../middleware/magicians/deleteMagician');
-const checkMagician = require('../middleware/magicians/checkMagician');
 const saveMagician = require('../middleware/magicians/saveMagician');
 const loadAllMagicians = require('../middleware/magicians/loadAllMagicians');
 
-var magicianModel = require("../models/magician");
+const magicianModel = require("../models/magician");
 
 module.exports = function (app) {
-    var objrep =  {
+    let objrep =  {
         magicianModel: magicianModel
     };
 
@@ -19,7 +18,6 @@ module.exports = function (app) {
 
     app.post("/magicians/magician/:magicianid",
         loadMagician(objrep),
-        checkMagician(objrep),
         saveMagician(objrep),
         renderMW(objrep, "magician_edit")
     );
@@ -35,7 +33,6 @@ module.exports = function (app) {
     );
 
     app.post("/magicians/add",
-        checkMagician(objrep),
         saveMagician(objrep),
         renderMW(objrep, "magician_edit")
     );

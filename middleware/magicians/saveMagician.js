@@ -11,7 +11,7 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        let mage = undefined;
+        let mage;
         if (typeof res.locals.magician !== 'undefined') {
             mage = res.locals.magician;
         } else {
@@ -22,9 +22,12 @@ module.exports = function (objectrepository) {
 
         mage.save(function (err) {
             if (err) {
-                return next(err);
-            }
-
+                if (err.name === 'MongoError' && err.code === 11000) {
+                    // Duplicate name
+                    res.locals.err.push(err);
+                    return next();
+                }
+            } else
             return res.redirect('/magicians');
         });
     };

@@ -1,32 +1,39 @@
 <%- include('header') -%>
 <%- include('menu') -%>
 <div class="row justify-content-center">
-    <form  class="col-6" method="post">
+    <%- include('errorbox') %>
+    <form class="col-6" method="post">
         <caption>
             <h2><strong>
                     <% if (typeof spell === 'undefined'){ %>
-                        <% spell = { name : '', details : '', inventor : ''}%>
+                        <% spell = {name: '', details: '', inventor: ''} %>
                         Add
-                    <% } else {%>
+                    <% } else { %>
                         Modify
                     <% } %>
                     Spell</strong></h2>
         </caption>
         <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" required class="form-control" name="spell[name]" id="nameInput" value="<%= spell.name %>">
+            <input type="text" required class="form-control" name="spell[name]" id="nameInput"
+                   value="<%= spell.name %>">
         </div>
         <div class="form-group">
             <label for="detailsInput">Details</label>
-            <input type="text" class="form-control" name="spell[details]" id="detailsInput" value="<%= spell.details %>">
+            <input type="text" class="form-control" name="spell[details]" id="detailsInput"
+                   value="<%= spell.details %>">
         </div>
         <div class="form-group">
-            <label for="inventorInput">Inventor</label>
-            <input type="text" class="form-control" name="spell[inventor]" id="inventorInput" value="<%= spell.inventor %>">
+            <label for="inventor">Inventor</label>
+            <select class="form-control input-sm" name="inventor">
+                <% for (key in magicians) { var magician = magicians[key]; %>
+                <option value="<%= magician._id %>"><%= magician.name %></option>
+                <% } %>
+            </select>
         </div>
         <button id="spellAddBtn" type="submit" class="btn btn-primary">Submit</button>
         <a class="btn btn-danger" href="/spells">Cancel</a>
     </form>
-    <% spell = undefined;%>
+    <% spell = undefined; %>
 </div>
 <%- include('footer') -%>

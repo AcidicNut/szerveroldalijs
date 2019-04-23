@@ -19,15 +19,17 @@ module.exports = function (objectrepository) {
         }
         spell.name = req.body.spell.name;
         spell.details = req.body.spell.details;
-
-        //TODO:: inventor save/populate, inventor names are unique
+        spell._inventor = req.body.inventor;
 
         spell.save(function (err) {
             if (err) {
-                return next(err);
-            }
-
-            return res.redirect('/spells');
+                if (err.name === 'MongoError' && err.code === 11000) {
+                    // Duplicate name
+                    res.locals.err.push(err);
+                    return next();
+                }
+            } else
+                return res.redirect('/spells');
         });
     };
 };
