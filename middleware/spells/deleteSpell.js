@@ -13,7 +13,7 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
             //redirect to all tasks
-            res.redirect('/spells/');
+            res.redirect('/spells');
         });
     };
 };
