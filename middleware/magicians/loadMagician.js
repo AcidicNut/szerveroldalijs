@@ -8,7 +8,7 @@ module.exports = function (objectrepository) {
     let magicianModel = requireOption(objectrepository, 'magicianModel');
     return function (req, res, next) {
         //not enought parameter
-        if ((typeof req.params.magicianid === 'undefined') || (req.params.magicianid === 'null')) {
+        if ((typeof req.params.magicianid === 'undefined') || (req.params.magicianid === null)) {
             return next();
         }
 

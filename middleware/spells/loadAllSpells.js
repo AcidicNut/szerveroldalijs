@@ -6,9 +6,7 @@ module.exports = function (objectrepository) {
     let spellModel = requireOption(objectrepository, 'spellModel');
 
     return function (req, res, next) {
-        spellModel.find({
-
-        }).populate('_inventor').exec(function (err, results) {
+        spellModel.find({}).populate('_inventor').exec(function (err, results) {
             if (err) {
                 return next(err);
             }

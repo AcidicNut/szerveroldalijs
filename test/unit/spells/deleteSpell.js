@@ -44,6 +44,7 @@ describe('deleteSpell middleware ', function () {
         };
 
         deleteSpellMW(objRep)(reqMock, resMock, function (err) {
+            expect('should not call next').be.eql(false);
         });
     });
 

@@ -43,6 +43,7 @@ describe('deleteMagician middleware ', function () {
         };
 
         deleteMagicianMW(objRep)(reqMock, resMock, function (err) {
+            expect('should not call next').be.eql(false);
         });
     });
 

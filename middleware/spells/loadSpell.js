@@ -8,7 +8,7 @@ module.exports = function (objectrepository) {
     let spellModel = requireOption(objectrepository, 'spellModel');
     return function (req, res, next) {
         //not enought parameter
-        if ((typeof req.params.spellid === 'undefined') || (req.params.spellid === 'null')) {
+        if ((typeof req.params.spellid === 'undefined') || (req.params.spellid === null)) {
             return next();
         }
 
